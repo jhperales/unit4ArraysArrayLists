@@ -1,4 +1,5 @@
 import java.util.Arrays;
+
 public class PartialArrays
 {
     private int[] values;
@@ -23,15 +24,17 @@ public class PartialArrays
     
     public void insert(int pos, int newValue)
     {
-        if (this.currentSize < this.values.length)
+        if (this.currentSize == this.values.length)
         {
-            for (int i = currentSize; i > pos; i--)
-            {
-                this.values[i] = this.values[i-1];
-            }
-            this.values[pos] = newValue;
-            currentSize++;
+            this.grow();
         }
+        
+        for (int i = currentSize; i > pos; i--)
+        {
+            this.values[i] = this.values[i-1];
+        }
+        this.values[pos] = newValue;
+        currentSize++;
     }
     
     public void swap(int posA, int posB)
@@ -40,4 +43,23 @@ public class PartialArrays
         this.values[posA] = this.values[posB];
         this.values[posB] = temp;
     }
+    
+    private void grow()
+    {
+        int[] newValues = new int[this.currentSize*2];
+        for (int i = 0; i < this.currentSize; i ++)
+        {
+            newValues[i] = this.values[i];
+        }
+        this.values = newValues;
+    }
+    
+    public static void main(String[] args)
+    {
+        PartialArrays array = new PartialArrays();
+        
+        array.remove(2);
+        System.out.println("Array with removed element at index 1: " + array);
+    }
+        
 }
