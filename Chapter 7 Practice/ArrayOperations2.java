@@ -17,7 +17,7 @@ public class ArrayOperations2
     public void shiftRight()
     {
         values[0] = values[values.length - 1];
-        for (int i = values.length; i > 0 ; i--)
+        for (int i = values.length - 1; i > 0 ; i--)
         {
             values[i] = values[i -1];
         }
