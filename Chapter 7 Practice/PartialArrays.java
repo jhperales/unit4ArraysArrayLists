@@ -60,6 +60,11 @@ public class PartialArrays
         
         array.remove(2);
         System.out.println("Array with removed element at index 1: " + array);
+        for (int i = 0; i < 10; i++)
+        {
+            array.insert(i, i);
+        }
+        System.out.println("Array: " + array);
     }
         
 }
