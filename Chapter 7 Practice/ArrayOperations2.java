@@ -10,7 +10,7 @@ public class ArrayOperations2
     public void swapFirstAndLast()
     {
         int temp = this.values[0];
-        values[0] = values.length - 1;
+        values[0] = values[values.length - 1];
         values[values.length - 1] = temp;
     }
     
