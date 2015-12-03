@@ -57,9 +57,10 @@ public class CharMatrix
              count += 1;
          }
       }
-      }
       return count;
-  }
+    }
+     
+  
 
   // Returns the character at row, col location
   public char charAt(int row, int col)
@@ -77,7 +78,14 @@ public class CharMatrix
   // false otherwise
   public boolean isEmpty(int row, int col)
   {
-      return this.grid[row][col].isEmpty();
+      if (this.grid[row][col] == ' ')
+      {
+          return true;
+      }
+      else
+      {
+          return false;
+      }
   }
 
   // Fills the given rectangle with fill  characters.
@@ -85,7 +93,7 @@ public class CharMatrix
   // lower right corner of the rectangle.
   public void fillRect(int row0, int col0, int row1, int col1, char fill)
   {
-      for (int i = 0; i < row1; i ++)
+      for (int i = row0; i < row1; i ++)
       {
           for (int j = col0; j < col1; j++)
           {
@@ -99,9 +107,9 @@ public class CharMatrix
   // lower right corner of the rectangle.
   public void clearRect(int row0, int col0, int row1, int col1)
   {
-     for (int i = 0; i < row1; i ++)
+     for (int i = row0; i <= row1; i ++)
       {
-          for (int j = col0; j < col1; j++)
+          for (int j = col0; j <= col1; j++)
           {
               this.grid[i][j] = ' ';
             }
@@ -114,7 +122,7 @@ public class CharMatrix
       int count = 0;
       for (int i = 0; i < row; i++)
       {
-          if (this.grid[i] != ' ')
+          if (this.grid[row][i] != ' ')
           {
               count += 1;
           }
@@ -125,17 +133,12 @@ public class CharMatrix
   // Returns the count of all non-space characters in col 
   public int countInCol(int col)
   {
-    int count = 0;
+    int total = 0;
+        
     for (int i = 0; i < this.grid.length; i++)
     {
-        for (int j = 0; j < col; j++)
-        {
-            if (this.grid[j] != ' ')
-            {
-                count += 1;
-            }
-        }
+        total += grid[i][col];
     }
-    return count;
+    return total;
   }
 }
