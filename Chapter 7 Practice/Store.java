@@ -18,9 +18,9 @@ public class Store
         int index = 0;
         for (int i = 0; i < prices.size(); i++)
         {
-            if (prices.get(i) >= largest)
+            if (prices.get(i) >= prices.get(index))
             {
-               
+               index = i;
             }
         }
         return "The best cutomer is: " + names.get(index);
