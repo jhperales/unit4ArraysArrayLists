@@ -74,7 +74,21 @@ public class Radar
         }
 
         setMonsterLocation(monsterLocationRow, monsterLocationCol);
+        injectNoise();
         
+        for (int i = 0; i < currentScan.length; i++)
+        {
+            for (int j = 0; j < currentScan[i].length; j++)
+            {
+                if (currentScan[i][j] == true)
+                {
+                    accumulator[i][j] += 1;
+                }
+            }
+        }
+        
+        numScans += 1;
+ 
     }
 
     /**
@@ -173,10 +187,16 @@ public class Radar
         // as a false positive.
         
         
-        //
-        // !!! add code here !!!
-        //
-        
+        for (int i = 0; i < currentScan.length; i++)
+        {
+            for (int j = 0; j < currentScan[i].length; j++)
+            {
+                if (Math.random() * noiseFraction > this.noiseFraction)
+                {
+                    this.currentScan[i][j] = true;
+                }
+            }
+        }
         
     }
     
