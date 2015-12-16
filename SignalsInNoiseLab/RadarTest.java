@@ -56,24 +56,13 @@ public class RadarTest
          * expect monster locatoin where user specified (5,5)
          */
         
-        Radar radar = new Radar(10, 10);
-        radar.setMonsterLocation(5, 5);
-        final int ROWS = radar.getNumRows();
-        final int COLS = radar.getNumCols();
-        
-        for (int i = 0; i < ROWS; i++)
+        Radar radar = new Radar(10,10);
+        radar.setMonsterLocation(5,5);
+        if (radar.isDetected(5,5) == true)
         {
-            for (int j = 0; j < COLS; j++)
-            {
-                if (radar.isDetected(i, j) == true)
-                {
-                    assertTrue("Moster is where it should be", radar.isDetected(i,j));
-                }
-            }
+            assertNotNull("Monster at 5,5)");
         }
-        
     }
-    
-    
-  
 }
+        
+        
